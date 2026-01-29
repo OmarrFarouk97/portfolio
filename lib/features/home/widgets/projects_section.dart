@@ -1,0 +1,94 @@
+import 'package:flutter/material.dart';
+import '../../../widgets/section_title.dart';
+import '../../../widgets/project_card.dart';
+
+class ProjectsSection extends StatelessWidget {
+  const ProjectsSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final projects = [
+      {
+        "title": "Neomrs",
+        "desc":
+            "A social media app for sharing photos, videos, and posts with likes and comments.",
+        "techs": ["Flutter", "Bloc", "Firebase"],
+        "play": "https://play.google.com/store/apps/details?id=app.neomars.com",
+        "store": "https://apps.apple.com/eg/app/neomrs-نيومرز/id6478036232",
+      },
+      {
+        "title": "Ask Al-Washem",
+        "desc":
+            "A platform for sharing experiences, browsing real estate ads and business activities.",
+        "techs": ["Flutter", "Google Maps", "Firebase", "Bloc"],
+        "play":
+            "https://play.google.com/store/apps/details?id=com.developers.askalwashm",
+        "store": "https://apps.apple.com/sa/app/اسأل-الوشم/id1669547503",
+      },
+      {
+        "title": "Aluxer & Aluxer Group",
+        "desc":
+            "Interactive voice rooms app with secure payments and private rooms.",
+        "techs": ["Flutter", "Firebase", "Payment", "WebRTC"],
+        "play":
+            "https://play.google.com/store/apps/details?id=com.aluxer.groub",
+        "store": null,
+      },
+      {
+        "title": "Ranen",
+        "desc":
+            "A full shopping app with multiple payment methods and clean architecture.",
+        "techs": ["Flutter", "Bloc", "REST API"],
+        "play":
+            "https://play.google.com/store/apps/details?id=com.ranenstore.store",
+        "store": "https://apps.apple.com/eg/app/ranen/id6505125342",
+      },
+      {
+        "title": "Sumu Al-Fikr",
+        "desc":
+            "Medical app for doctors and patients with chat, calls and online payment.",
+        "techs": ["Flutter", "Firebase", "Payment"],
+        "play":
+            "https://play.google.com/store/apps/details?id=com.smoalfkr.smoalfkr",
+        "store": null,
+      },
+      {
+        "title": "Loxford Classes",
+        "desc":
+            "Educational app with lessons, videos, books and screenshot protection.",
+        "techs": ["Flutter", "Firebase", "Video Player"],
+        "play": null,
+        "store": null,
+      },
+    ];
+
+    return Padding(
+      padding: const EdgeInsets.all(40),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SectionTitle(
+            title: "Projects",
+            subtitle: "Some of my real-world applications",
+          ),
+          const SizedBox(height: 30),
+          Wrap(
+            spacing: 24,
+            runSpacing: 24,
+            children: projects
+                .map(
+                  (p) => ProjectCard(
+                    title: p["title"] as String,
+                    description: p["desc"] as String,
+                    techs: List<String>.from(p["techs"] as List),
+                    googlePlay: p["play"] as String?,
+                    appStore: p["store"] as String?,
+                  ),
+                )
+                .toList(),
+          ),
+        ],
+      ),
+    );
+  }
+}

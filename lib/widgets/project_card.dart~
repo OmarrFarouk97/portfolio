@@ -1,0 +1,94 @@
+import 'package:flutter/material.dart';
+
+class ProjectCard extends StatefulWidget {
+  final String title;
+  final String description;
+  final List<String> techs;
+  final String github;
+  final String live;
+
+  const ProjectCard({
+    super.key,
+    required this.title,
+    required this.description,
+    required this.techs,
+    required this.github,
+    required this.live,
+  });
+
+  @override
+  State<ProjectCard> createState() => _ProjectCardState();
+}
+
+class _ProjectCardState extends State<ProjectCard> {
+  bool hover = false;
+
+  Future<void> openLink(String url) async {
+    final uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) => setState(() => hover = true),
+      onExit: (_) => setState(() => hover = false),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 300),
+        width: 340,
+        padding: const EdgeInsets.all(22),
+        transform: hover
+            ? (Matrix4.identity()..translate(0.0, -12.0))
+            : Matrix4.identity(),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(18),
+          color: const Color(0xFF020617),
+          border: Border.all(color: Colors.purple.withOpacity(0.4)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.blue.withOpacity(0.2),
+              blurRadius: 25,
+              offset: const Offset(0, 12),
+            )
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(widget.title,
+                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 10),
+            Text(widget.description, style: const TextStyle(color: Colors.grey)),
+            const SizedBox(height: 12),
+            Wrap(
+              spacing: 8,
+              children: widget.techs
+                  .map((t) => Chip(
+                label: Text(t),
+                backgroundColor: Colors.blue.withOpacity(0.2),
+              ))
+                  .toList(),
+            ),
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                TextButton.icon(
+                  onPressed: () => openLink(widget.github),
+                  icon: const Icon(Icons.code),
+                  label: const Text("GitHub"),
+                ),
+                TextButton.icon(
+                  onPressed: () => openLink(widget.live),
+                  icon: const Icon(Icons.open_in_new),
+                  label: const Text("Live"),
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}

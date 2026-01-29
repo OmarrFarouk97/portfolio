@@ -1,0 +1,31 @@
+import 'package:flutter/material.dart';
+
+import 'core/theme.dart';
+import 'features/home/home_page.dart';
+
+void main() {
+  runApp(const PortfolioApp());
+}
+
+class PortfolioApp extends StatelessWidget {
+  const PortfolioApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Omar Farouk Portfolio',
+      theme: AppTheme.darkTheme,
+
+      // theme: ThemeData(
+      //   brightness: Brightness.dark,
+      //   primaryColor: Colors.blue,
+      //   scaffoldBackgroundColor: const Color(0xFF0F172A),
+      //   textTheme: const TextTheme(
+      //     bodyMedium: TextStyle(color: Colors.white),
+      //   ),
+      // ),
+      home: const HomePage(),
+    );
+  }
+}
