@@ -47,7 +47,8 @@ class ContactSection extends StatelessWidget {
               const SizedBox(width: 20),
               _SocialButton(
                 icon: Icons.work, // LinkedIn icon replacement
-                onTap: () => _launchUrl("https://linkedin.com/in/omar-farouk"),
+                onTap: () => _launchUrl(
+                    "https://www.linkedin.com/in/omar-farouk-b82934200/"),
               ),
             ],
           ),
