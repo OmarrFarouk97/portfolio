@@ -61314,7 +61314,7 @@ A.NX.prototype={
 $0(){return this.a.jG("mailto:omarmedoo94@gmail.com")},
 $S:0}
 A.NY.prototype={
-$0(){return this.a.jG("https://github.com/OmarFarouk97")},
+$0(){return this.a.jG("https://github.com/OmarrFarouk97")},
 $S:0}
 A.NZ.prototype={
 $0(){return this.a.jG("https://linkedin.com/in/omar-farouk")},
