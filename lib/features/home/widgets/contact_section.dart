@@ -42,7 +42,7 @@ class ContactSection extends StatelessWidget {
               _SocialButton(
                 icon: Icons
                     .code, // GitHub icon replacement since FontAwesome not used
-                onTap: () => _launchUrl("https://github.com/OmarFarouk97"),
+                onTap: () => _launchUrl("https://github.com/OmarrFarouk97"),
               ),
               const SizedBox(width: 20),
               _SocialButton(
