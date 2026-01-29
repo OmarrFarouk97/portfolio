@@ -61317,7 +61317,7 @@ A.NY.prototype={
 $0(){return this.a.jG("https://github.com/OmarrFarouk97")},
 $S:0}
 A.NZ.prototype={
-$0(){return this.a.jG("https://linkedin.com/in/omar-farouk")},
+$0(){return this.a.jG("https://www.linkedin.com/in/omar-farouk-b82934200/")},
 $S:0}
 A.ps.prototype={
 R(a){var s=null,r=A.fU(50),q=A.zq(A.aa(a).dx,1),p=A.aa(a).dx.bp(0.1)
